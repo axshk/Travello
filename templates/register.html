@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+div {
+    height: 367px;
+    background: linear-gradient(to bottom, #336699 0%, #ffffff 130%) fixed;
+}
+body {
+    text-align: center;
+}
+input[type=text], input[type=password], input[type=email]{
+
+  width: 25%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  display: inline-block;
+  background: #f1f1f1;
+}
+.registerbtn {
+  background-color:#003366;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+.fname{
+margin: 5px 0 22px 0;
+}
+
+</style>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="form">
+        <form action="register" method="post">
+            <div class="container">
+
+                {% csrf_token %}
+
+                <input type="text" class="fname" name="first_name" placeholder="First Name" > <br>
+                <input type="text" name="last_name" placeholder="Last Name"><br>
+                <input type="text" name="username" placeholder="Username"><br>
+                <input type="email" name="email" placeholder="Email"><br>
+                <input type="password" name="password1" placeholder="Password"><br>
+                <input type="password" name="password2" placeholder="Confirm Password"><br>
+                <button type="submit" class="registerbtn">Register</button>
+
+            </div>
+
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
